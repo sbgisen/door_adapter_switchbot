@@ -23,11 +23,12 @@ import time
 
 import rclpy
 import yaml
-from DoorClientAPI import DoorClientAPI
 from rclpy.node import Node
 from rmf_door_msgs.msg import DoorMode
 from rmf_door_msgs.msg import DoorRequest
 from rmf_door_msgs.msg import DoorState
+
+from door_adapter_switchbot.DoorClientAPI import DoorClientAPI
 
 
 class DoorAdapter(Node):

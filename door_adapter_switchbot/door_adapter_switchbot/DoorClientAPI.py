@@ -58,8 +58,11 @@ class DoorClientAPI:
             raise ValueError("Please set SWITCHBOT_TOKEN and SWITCHBOT_SECRET environment variables.")
         self.__client = SwitchBot(token=token, secret=secret)
 
-    def __get_device_id(self) -> Optional[str]:
+    def __get_device_id(self, device_name: str) -> Optional[str]:
         """Find device ID from the device name. Called once during initialization.
+
+        Args:
+            device_name (str): The name of the device to find.
 
         Returns:
             Optional[str]: The device ID if found and the device is a Contact Sensor type. None otherwise.
@@ -69,7 +72,7 @@ class DoorClientAPI:
         while limit_count < 3:
             try:
                 devices = self.__client.devices()
-                device = next((device for device in devices if device.name == self.__device_name), None)
+                device = next((device for device in devices if device.name == device_name), None)
                 if device is None or device.type != 'Contact Sensor':
                     return None
                 return device.id
