@@ -82,6 +82,8 @@ class DoorAdapter(Node):
             # This implement to reduce the number of API called
             if self.__door_mode == DoorMode.MODE_CLOSED and not self.__open_door:
                 self.__check_status = False
+        else:
+            self.__door_mode = DoorMode.MODE_UNKNOWN
         state_msg = DoorState()
         state_msg.door_time = self.get_clock().now().to_msg()
         # publish states of the door
