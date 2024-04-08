@@ -1,0 +1,16 @@
+---
+# RMF door parameters
+
+door:
+  # Switchbot API token & secret should be given by env var to avoid writing it inside every config file.
+  name: "example_door"  # Door name used by Open-RMF.
+  device_name: "example_device_name"  # This should be set by the Switchbot App.
+  door_signal_period: 5.0  # Seconds.
+  door_close_feature: false  # For manual doors, this can be set to false for most cases.
+
+door_subscriber:
+  topic_name: "adapter_door_requests"  # Door requests will be received from this topic.
+
+door_publisher:
+  topic_name: "door_states"  # Door status will be sent as this topic.
+  door_state_publish_period: 1.0  # Seconds
