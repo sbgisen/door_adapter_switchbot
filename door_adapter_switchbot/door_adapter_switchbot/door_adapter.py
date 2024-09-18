@@ -1,5 +1,5 @@
-#!/usr/bin/env pipenv-shebang
-# -*- encoding: utf-8 -*-
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 
 # Copyright (c) 2024 SoftBank Corp.
 #
