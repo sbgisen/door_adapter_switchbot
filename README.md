@@ -1,6 +1,13 @@
 # door_adapter_switchbot
 
-Open-RMF door adapter implementation for manual doors with SwitchBot contact sensor attached.
+Open-RMF door adapter implementation for manual doors with [SwitchBot Contact Sensor](https://www.switch-bot.com/products/contact-sensor) attached. Door status will be notified by this adapter but the doors should be opened manually.
+
+<table>
+  <tr>
+    <td><img src=".readme/switchbot_contact_sensor.jpg" alt="switchbot_contact_sensor" width="250"></td>
+    <td><img src=".readme/rmf_door.gif" alt="door_adapter_switchbot_action" width="400"></td>
+  </tr>
+</table>
 
 ## Installation
 
