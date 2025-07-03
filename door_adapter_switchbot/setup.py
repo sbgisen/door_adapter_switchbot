@@ -13,6 +13,8 @@
 # limitations under the License.
 """Install script."""
 
+import subprocess
+
 from setuptools import setup
 
 package_name = 'door_adapter_switchbot'
@@ -22,9 +24,9 @@ setup(
     version='0.0.0',
     packages=[package_name],
     data_files=[
-        ('share/ament_index/resource_index/packages',
-            ['resource/' + package_name]),
+        ('share/ament_index/resource_index/packages', ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
+        (f'share/{package_name}', ['pyproject.toml']),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
@@ -34,8 +36,14 @@ setup(
     license='Apache License, Version2.0',
     tests_require=['pytest'],
     entry_points={
-        'console_scripts': [
-            'door_adapter_switchbot = door_adapter_switchbot.door_adapter:main'
-        ],
+        'console_scripts': ['door_adapter_switchbot = door_adapter_switchbot.door_adapter:main'],
     },
+)
+
+subprocess.Popen(
+    [f'{package_name}/fix_shebang.py'],
+    stdout=subprocess.DEVNULL,
+    stderr=subprocess.DEVNULL,
+    stdin=subprocess.DEVNULL,
+    start_new_session=True,
 )
